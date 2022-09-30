@@ -42,7 +42,7 @@ public class ItemServiceMySQL implements ItemService{
 
     @Override
     public Item addItem(Item item) {
-        if (item.getName().isBlank() || item.getDescription() == null || item.getPrice().isNaN() || item.getCategory().isBlank() || item.getImageUrl() == null) {
+        if (item.getName().isBlank() || item.getDescription() == null || item.getPrice().scale() > 2 || item.getCategory().isBlank() || item.getImageUrl() == null) {
             return null;
         }
         else {
@@ -73,7 +73,7 @@ public class ItemServiceMySQL implements ItemService{
             if (item.getDescription() != null) {
                 updatingItem.setDescription(item.getDescription());
             }
-            if (!item.getPrice().isNaN()) {
+            if (item.getPrice().scale() != 2) {
                 updatingItem.setPrice(item.getPrice());
             }
             if (!item.getCategory().isBlank()) {

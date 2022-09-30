@@ -1,5 +1,12 @@
 package com.suntek.inventorymanager.controller.dto;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class ItemDto {
     private String name;
     private String description;
@@ -7,13 +14,13 @@ public class ItemDto {
     private String category;
     private String imageUrl;
 
-    public ItemDto(String name, String description, double price, String category, String imageUrl) {
-        this.name = name;
-        this.description = description;
-        this.price = price;
-        this.category = category;
-        this.imageUrl = imageUrl;
-    }
+//    public ItemDto(String name, String description, double price, String category, String imageUrl) {
+//        this.name = name;
+//        this.description = description;
+//        this.price = price;
+//        this.category = category;
+//        this.imageUrl = imageUrl;
+//    }
 
     public String getName() {
         return name;

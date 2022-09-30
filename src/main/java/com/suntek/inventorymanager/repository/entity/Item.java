@@ -3,30 +3,31 @@ package com.suntek.inventorymanager.repository.entity;
 import com.suntek.inventorymanager.controller.dto.ItemDto;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 
 @Entity
+@Table(name = "Items")
 public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    private Integer idItems;
     @Column(name = "name")
     private String name;
     @Column(name = "description")
     private String description;
     @Column(name = "price")
-    private Double price;
+    private BigDecimal price;
     @Column(name = "category")
     private String category;
     @Column(name = "imageUrl")
     private String imageUrl;
 
-    public Item() {
-
-    }
+    public Item() {}
     public Item(ItemDto itemDto) {
         this.name = itemDto.getName();
         this.description = itemDto.getDescription();
-        this.price = itemDto.getPrice();
+//        this.price = BigDecimal.valueOf(Double.parseDouble(String.format("%.2f", itemDto.getPrice()))).setScale(2);
+        this.price = new BigDecimal(String.format("%.2f", itemDto.getPrice())).setScale(2);
         this.category = itemDto.getCategory();
         this.imageUrl = itemDto.getImageUrl();
     }
@@ -40,11 +41,11 @@ public class Item {
 //    }
 
     public Integer getId() {
-        return id;
+        return idItems;
     }
 
     public void setId(Integer id) {
-        this.id = id;
+        this.idItems = id;
     }
 
     public String getName() {
@@ -63,11 +64,11 @@ public class Item {
         this.description = description;
     }
 
-    public Double getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(Double price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 
@@ -85,5 +86,17 @@ public class Item {
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "idItems=" + idItems +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                ", category='" + category + '\'' +
+                ", imageUrl='" + imageUrl + '\'' +
+                '}';
     }
 }

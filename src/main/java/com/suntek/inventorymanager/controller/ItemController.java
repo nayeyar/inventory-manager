@@ -7,10 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/item")
+@RequestMapping("/items")
 public class ItemController {
+
+//    testing Repo before service implementation
 //    final ItemRepository itemRepository;
-//
 //    public ItemController(@Autowired ItemRepository itemRepository) {
 //        this.itemRepository = itemRepository;
 //    }
@@ -21,7 +22,8 @@ public class ItemController {
         this.itemService = itemService;
     }
 
-    @GetMapping("/all")
+    // @GetMapping("/all")
+    @GetMapping
     public Iterable<Item> getItems() {
         return itemService.getAllItems();
     }
@@ -31,6 +33,7 @@ public class ItemController {
         return itemService.getItemById(id);
     }
 
+    @CrossOrigin
     @PostMapping
     public Item addItem(@RequestBody ItemDto itemDto) {
         return itemService.addItem(new Item(itemDto));
