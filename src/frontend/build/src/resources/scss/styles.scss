@@ -1,0 +1,17 @@
+
+// My Sass
+
+@import "./stylesvariables";
+@import "./background";
+@import "./contentblock";
+
+// Bootstrap variables
+@import "./variables";
+
+body {
+    @include primaryBackground();
+}
+
+.mainBaseLayer {
+	@extend .basic-content-block;
+}

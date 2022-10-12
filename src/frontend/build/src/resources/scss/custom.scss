@@ -1,0 +1,42 @@
+// Custom.scss
+// Option A: Include all of Bootstrap
+// Bootstrap Overrides
+// Include any default variable overrides here (though functions won't be available)
+
+// Bootstrap variables overrides
+@import "./variables";
+
+// Include functions first (so you can manipulate colors, SVGs, calc, etc)
+@import "~bootstrap/scss/functions";
+// Include remainder of required Bootstrap stylesheets
+@import "~bootstrap/scss/variables";
+// Include remainder of required parts
+@import "~bootstrap/scss/maps";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/root";
+
+// Create your own map
+$custom-colors: (
+	"custom-color": $teal,
+);
+
+// Merge the maps
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+// Merge the $colors Sass map from sass/._variables.scss 
+$theme-colors: map-merge($theme-colors, $colors);
+
+@import "~bootstrap/scss/bootstrap";
+
+// Then add additional custom code here
+
+// Custom
+
+@import "./stylesvariables";
+@import "./background";
+
+body {
+	@include primaryBackground();
+}
+
+

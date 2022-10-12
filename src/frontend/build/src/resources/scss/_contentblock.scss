@@ -1,0 +1,29 @@
+
+@import "./stylevariables";
+
+@mixin flexCenter($direction) {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: $direction;
+}
+
+.basic-content-block {
+	@include flexCenter(column);
+	background: $theme-color-base;
+	p {
+		color: $my-primary-text;
+	}
+	button {
+		background-color: $theme-color-base;
+		&::before {
+			content: "Click Me!";
+		}
+		&::after {
+			content: "Let's go..!!";
+		}
+		&:hover {
+			background: $theme-color-gradient;
+		}
+	}
+}

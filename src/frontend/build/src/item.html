@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Our items</title>
+
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+			crossorigin="anonymous"
+		/>
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+			crossorigin="anonymous"
+		></script>
+
+		<link rel="stylesheet" href="./resources/CSS/style.css" />
+		<link rel="stylesheet" href="./resources/scss/custom.scss" />
+	</head>
+	<body>
+		<header>
+			<nav
+				class="navbar navbar-expand-lg"
+				style="
+					background: rgb(43, 41, 60);
+					background: linear-gradient(
+						69deg,
+						rgba(43, 41, 60, 0.96) 0%,
+						rgba(74, 148, 168, 1) 10%,
+						rgba(106, 73, 115, 1) 90%
+					);
+				"
+			>
+				<div class="container-fluid">
+					<a class="navbar-brand text-light" href="#">Bawda</a>
+					<button
+						class="navbar-toggler"
+						type="button"
+						data-bs-toggle="collapse"
+						data-bs-target="#navbarNav"
+						aria-controls="navbarNav"
+						aria-expanded="false"
+						aria-label="Toggle navigation"
+					>
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarNav">
+						<ul class="navbar-nav">
+							<li class="nav-item">
+								<a class="nav-link active" aria-current="page" href="#">Home</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="item.html">Shop</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#">Features</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#">Pricing</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link disabled">Disabled</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</header>
+		<br />
+		<div id="dialog-container" title="Dialogs" style="overflow: hidden"></div>
+		<main>
+			<div class="container">
+				<h4 class="text-center text-light bg-secondary bg-opacity-50 rounded">Inventory</h4>
+				<div class="row" id="list-all-items"></div>
+			</div>
+			<div class="container">
+				<h4 class="text-center text-light bg-secondary bg-opacity-50 rounded">Local/Recent</h4>
+				<div class="row" id="list-items">
+					<!-- <div class="col">
+                		<div class="card" style="width: 18rem;">
+                			<img src="" class="card-img-top" alt="...">
+                			<div class="card-body">
+                    			<h5 class="card-title">Card title</h5>
+                    			<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    			<a href="#" class="btn btn-primary">Go somewhere</a>
+                			</div>
+                		</div>
+            		</div> -->
+				</div>
+				<!--list-items row-->
+			</div>
+			<!--container-->
+			<div
+				class="container-fluid text-light mt-3"
+				style="
+					background-image: url('resources/media/images/landscape/burgess-milner-OYYE4g-I5ZQ-unsplash.jpg');
+					background-size: cover;
+				"
+			>
+				<div class="row justify-content-center">
+					<div
+						class="col-6 pt-3 pb-3 bg-secondary"
+						style="--bs-bg-opacity: 0.75"
+					>
+						<form class="itemForm">
+							<div class="mb-3">
+								<label for="itemName" class="form-label">Item Name</label>
+								<input
+									type="text"
+									class="form-control"
+									id="itemName"
+									placeholder="Enter Item Name"
+								/>
+							</div>
+							<div class="mb-3">
+								<label for="itemDescription" class="form-label"
+									>Item Description</label
+								>
+								<input
+									type="text"
+									class="form-control"
+									id="itemDescription"
+									placeholder="Enter item Description"
+								/>
+							</div>
+							<div class="mb-3">
+								<label for="itemPrice" class="form-label">Price</label>
+								<input
+									type="number"
+									class="form-control"
+									id="itemPrice"
+									step="0.01"
+									min="0"
+									placeholder="$0.00"
+								/>
+							</div>
+							<div class="mb-3">
+								<label for="itemCategory" class="form-label">Category</label>
+								<input
+									type="text"
+									class="form-control"
+									id="itemCategory"
+									placeholder="Enter Category"
+								/>
+							</div>
+							<div class="mb-3">
+								<label for="itemImg" class="form-label">Image</label>
+								<input
+									type="text"
+									class="form-control"
+									id="itemImg"
+									placeholder="Add Image"
+								/>
+							</div>
+							<!--
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="itemCheck">
+                                <label class="form-check-label" for="itemCheck">Confirm</label>
+                            </div> -->
+							<div class="d-grid gap-2 d-md-flex justify-content-md-between">
+								<div>
+									<button type="reset" class="btn btn-outline-warning">
+										Reset Form
+									</button>
+									<button
+										type="submit"
+										class="btn btn-teal"
+									>
+										Add Item
+									</button>
+								</div>
+								<div>
+									<button
+										type="button"
+										class="btn btn-danger"
+										data-bs-toggle="modal"
+										data-bs-target="#clearStaticBackdrop"
+									>
+										Clear Recent/Local Cache
+									</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="container">
+				<!---->
+				<div class="row justify-content-center align-items-center m-1 p-1">
+					<div class="col">
+						<div id="carouselLeft" class="carousel slide" data-bs-ride="true">
+							<div class="carousel-indicators">
+								<button
+									type="button"
+									data-bs-target="#carouselLeft"
+									data-bs-slide-to="0"
+									class="active"
+									aria-current="true"
+									aria-label="Slide 1"
+								></button>
+								<button
+									type="button"
+									data-bs-target="#carouselLeft"
+									data-bs-slide-to="1"
+									aria-label="Slide 2"
+								></button>
+								<button
+									type="button"
+									data-bs-target="#carouselLeft"
+									data-bs-slide-to="2"
+									aria-label="Slide 3"
+								></button>
+							</div>
+							<div class="carousel-inner">
+								<div class="carousel-item active">
+									<img
+										src="resources/media/images/portrait/amr-taha-PpkID3ejSig-unsplash.jpg"
+										class="d-block w-100"
+										alt="..."
+									/>
+								</div>
+								<div class="carousel-item">
+									<img
+										src="resources/media/images/portrait/clarisse-meyer-rx47C9fBccg-unsplash.jpg"
+										class="d-block w-100"
+										alt="..."
+									/>
+								</div>
+								<div class="carousel-item">
+									<img
+										src="resources/media/images/portrait/eli-defaria-IN6KPUe8j04-unsplash.jpg"
+										class="d-block w-100"
+										alt="..."
+									/>
+								</div>
+							</div>
+							<button
+								class="carousel-control-prev"
+								type="button"
+								data-bs-target="#carouselLeft"
+								data-bs-slide="prev"
+							>
+								<span
+									class="carousel-control-prev-icon"
+									aria-hidden="true"
+								></span>
+								<span class="visually-hidden">Previous</span>
+							</button>
+							<button
+								class="carousel-control-next"
+								type="button"
+								data-bs-target="#carouselLeft"
+								data-bs-slide="next"
+							>
+								<span
+									class="carousel-control-next-icon"
+									aria-hidden="true"
+								></span>
+								<span class="visually-hidden">Next</span>
+							</button>
+						</div>
+					</div>
+					<div class="col">
+						<div id="carouselRight" class="carousel slide" data-bs-ride="true">
+							<div class="carousel-indicators">
+								<button
+									type="button"
+									data-bs-target="#carouselRight"
+									data-bs-slide-to="0"
+									class="active"
+									aria-current="true"
+									aria-label="Slide 1"
+								></button>
+								<button
+									type="button"
+									data-bs-target="#carouselRight"
+									data-bs-slide-to="1"
+									aria-label="Slide 2"
+								></button>
+								<button
+									type="button"
+									data-bs-target="#carouselRight"
+									data-bs-slide-to="2"
+									aria-label="Slide 3"
+								></button>
+								<button
+									type="button"
+									data-bs-target="#carouselRight"
+									data-bs-slide-to="3"
+									aria-label="Slide 3"
+								></button>
+							</div>
+							<div class="carousel-inner">
+								<div class="carousel-item active">
+									<img
+										src="resources/media/images/portrait/yasu-shots-_y6hMz1pJC0-unsplash.jpg"
+										class="d-block w-100"
+										alt="..."
+									/>
+								</div>
+								<div class="carousel-item">
+									<img
+										src="resources/media/images/portrait/ussama-azam-xgNSlx7DjYM-unsplash.jpg"
+										class="d-block w-100"
+										alt="..."
+									/>
+								</div>
+								<div class="carousel-item">
+									<img
+										src="resources/media/images/portrait/max-titov-Mhktr6dFD3I-unsplash.jpg"
+										class="d-block w-100"
+										alt="..."
+									/>
+								</div>
+								<div class="carousel-item">
+									<img
+										src="resources/media/images/portrait/marionel-luciano-f615lHRUJqw-unsplash.jpg"
+										class="d-block w-100"
+										alt="..."
+									/>
+								</div>
+							</div>
+							<button
+								class="carousel-control-prev"
+								type="button"
+								data-bs-target="#carouselRight"
+								data-bs-slide="prev"
+							>
+								<span
+									class="carousel-control-prev-icon"
+									aria-hidden="true"
+								></span>
+								<span class="visually-hidden">Previous</span>
+							</button>
+							<button
+								class="carousel-control-next"
+								type="button"
+								data-bs-target="#carouselRight"
+								data-bs-slide="next"
+							>
+								<span
+									class="carousel-control-next-icon"
+									aria-hidden="true"
+								></span>
+								<span class="visually-hidden">Next</span>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+
+		<footer></footer>
+
+		<script type="module" src="./resources/js/main.js"></script>
+		<script type="module" src="./resources/js/item-form.js"></script>
+	</body>
+</html>

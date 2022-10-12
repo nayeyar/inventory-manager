@@ -71,7 +71,7 @@
 								<configuration>
 									<resources>
 										<resource>
-											<directory>src/frontend/build</directory>
+											<directory>src/frontend/build/dist</directory>
 										</resource>
 									</resources>
 									<outputDirectory>${basedir}/target/classes/static</outputDirectory>

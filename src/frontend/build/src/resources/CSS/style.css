@@ -1,0 +1,42 @@
+/* html,
+body {
+	height: 100%;
+	width: 100%;
+} */
+* {
+	margin: 0;
+	padding: 0;
+}
+
+/* body {
+	background-color: rgba(0, 0, 0, 0.8);
+	opacity: 0.99;
+	background-image: radial-gradient(
+			circle at center center,
+			rgba(106, 72, 115, 0.8),
+			rgba(0, 0, 0, 0.8)
+		),
+		repeating-radial-gradient(
+			circle at center center,
+			rgba(106, 72, 115, 0.8),
+			rgba(106, 72, 115, 0.8),
+			12px,
+			transparent 24px,
+			transparent 12px
+		);
+	background-blend-mode: multiply;
+} */
+
+/* .grid-container {
+	display: grid;
+	gap: 50px 100px;
+	grid-template-columns: auto auto auto;
+	padding: 1px;
+}
+
+.grid-item {
+	background-color: rgba(255, 255, 255, 0.8);
+	padding: 0px;
+	font-size: 30px;
+	text-align: center;
+} */
